@@ -1,0 +1,47 @@
+version: "3.1"
+
+stories:
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
+
+  - story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
+
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: GeekforGeek story
+    steps:
+      - intent: greet
+      - action: utter_askname
+      - intent: user_name
+        entities:
+          - name: "RANDOM_PERSON_NAME"
+      - slot_was_set:
+          - name: "RANDOM_PERSON_NAME"
+      - action: utter_askemail
+      - intent: email_id
+        entities:
+          - email: "abc@gmail.com"
+      - slot_was_set:
+          - email: "abc@gmail.com"
+
+      - action: action_email
