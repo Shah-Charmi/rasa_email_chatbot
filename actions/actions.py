@@ -83,7 +83,7 @@
 
 #     # Authentication
 #     try:
-#         s.login(fromaddr, "djxqzzzfthcuckqp")
+#         s.login(fromaddr, "application password")
 
 #         # Converts the Multipart msg into a string
 #         text = msg.as_string()
@@ -141,7 +141,7 @@ class ActionEmail(Action):
         # Making connection secured
         s.starttls()
         try:
-            s.login("shahcharmi144@gmail.com", "djxqzzzfthcuckqp")
+            s.login("shahcharmi144@gmail.com", "application password")
 
         # Message to be sent
             message = "Hello {} , This is a demo message".format(user_name)
